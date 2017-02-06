@@ -21,12 +21,12 @@ describe('generateLocationMessage', () => {
       var from = 'Jen';
       var latitude = '30.5';
       var longitude = '150.5';
-      var locationMessage = generateLocationMessage(from, latitude, longitude);
+      var url = 'https://www.google.com/maps?q=30.5,150.5'
 
       expect(locationMessage.createdAt).toBeA('number');
       expect(locationMessage).toInclude({
         from,
-        url: `https://www.google.com/maps?q=${latitude},${longitude}`
+        url: generateLocationMessage(from, latitude, longitude);
       })
   });
 });
